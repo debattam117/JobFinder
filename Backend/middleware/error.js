@@ -38,4 +38,4 @@ export const errorMiddleware=(err,req,res,next)=>{
 
 }
 
-export default ErrorHandler;
+export { ErrorHandler };  //Exporting error handler class . Not a function its a class

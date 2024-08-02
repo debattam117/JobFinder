@@ -24,7 +24,8 @@ const UserSchema=new mongoose.Schema({
         type:String,
         required:[true,"Please provide your phone number"],
         minLength:[8,"Password must contain atleast 8 Characters!"],
-        maxLength:[30,"Password cannot exceed more than 30 Characters!"]
+        maxLength:[30,"Password cannot exceed more than 30 Characters!"],
+        select:false                                                             // password will not show during a get request 
        },
     role:{
         type:String,

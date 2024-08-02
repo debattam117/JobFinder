@@ -1,0 +1,21 @@
+why in mongodb index creating users while my schema name is user
+
+When you define a Mongoose model with a singular name, Mongoose will automatically create a collection with a pluralized name. 
+For example, if you define a model named User, Mongoose will create a collection named users.
+
+Controlling Collection Name
+If you want to explicitly control the name of the collection and avoid pluralization, you can pass a third parameter to the mongoose.model method:
+
+javascript
+Copy code
+const User = mongoose.model('User', userSchema, 'user');
+This way, the collection name will remain as user instead of being pluralized to users.
+
+Best Practices
+While you can control the collection name, it is generally a good practice to follow the convention and allow Mongoose to pluralize the collection name. This keeps your codebase consistent and adheres to common conventions, making it easier for other developers to understand your code.
+
+Summary
+Mongoose Behavior: Automatically pluralizes collection names based on the model name.
+Controlling Collection Name: Use the third parameter of mongoose.model to specify the exact collection name.
+Best Practice: Follow the convention and allow Mongoose to pluralize the collection name unless you have a specific reason not to.
+By understanding this behavior, you can effectively manage your MongoDB collections and schemas.

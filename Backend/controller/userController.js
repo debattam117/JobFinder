@@ -33,7 +33,7 @@ export const login=catchAsyncError(async (req,res,next)=>{
           return next(new ErrorHandler("Please provide email password and role",400));
      }
      
-     const user= await user.findOne({email}).select("+password");
+     const user= await User.findOne({email}).select("+password");
      if(!user)
      {
        return next(new ErrorHandler("Invalid email or password!",400));
@@ -51,5 +51,23 @@ export const login=catchAsyncError(async (req,res,next)=>{
      }
 
      sendToken(user,200,res,"User login successfully!");
+
+});
+
+
+export const logout=catchAsyncError(async (req,res,next)=>{
+
+     res.status(201).cookie("token","",{
+          httpOnly:true,
+          expires:new Date(
+               Date.now()+process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
+          ),
+
+     }).json({
+          success:true,
+          message: "User logged out successfully!"
+     })
+     
+
 
 });

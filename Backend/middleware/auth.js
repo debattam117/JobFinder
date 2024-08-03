@@ -1,9 +1,9 @@
 import { catchAsyncError } from "./catchAsyncError.js"
-import ErrorHandler from "./error.js";
+import {ErrorHandler} from "./error.js";
 import jwt from 'jsonwebtoken';
 import { User } from "../model/userSchema.js";
 
-export const isAuthorized=catchAsyncError(async(req,res,next)=>{
+const isAuthorized=catchAsyncError(async(req,res,next)=>{
     const{token}=req.cookies;
     if(!token){
         return next(new ErrorHandler("User not Authorized",400));
@@ -15,3 +15,5 @@ export const isAuthorized=catchAsyncError(async(req,res,next)=>{
     next();
 
 });
+
+export default isAuthorized;

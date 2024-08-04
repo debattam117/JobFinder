@@ -4,7 +4,7 @@ import isAuthorized from "../middleware/auth.js";
 
 const router=express.Router();
 
-router.get("/getalljobs",getAllJobs);
+router.get("/getAllJobs",isAuthorized, getAllJobs);
 router.post("/postJobs",isAuthorized ,postJobs);
 
 export default router;

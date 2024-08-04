@@ -21,7 +21,7 @@ Best Practice: Follow the convention and allow Mongoose to pluralize the collect
 By understanding this behavior, you can effectively manage your MongoDB collections and schemas.
 
 
-2.mongoose.schema meaning ?
+2. mongoose.schema meaning ?
 
 In Mongoose, a schema is used to define the structure of documents within a collection in a MongoDB database. The mongoose.Schema constructor is used to create a schema object, which outlines the fields and types of data that will be stored in the documents.
 
@@ -114,3 +114,29 @@ Schema Creation: Use mongoose.Schema to define the structure of documents in a c
 Field Definitions: Specify fields, data types, and validation rules within the schema.
 Model Creation: Use mongoose.model to create a model from the schema.
 Document Manipulation: Use the model to create, read, update, and delete documents in the MongoDB collection.
+
+
+
+
+3. meaning of const user= await User.findOne({email}).select("+password");
+
+export const login=catchAsyncError(async (req,res,next)=>{
+     const {email,password,role}=req.body;
+
+     if(!email||!password||!role){
+          return next(new ErrorHandler("Please provide email password and role",400));
+     }
+     
+     const user= await User.findOne({email}).select("+password");
+});
+
+
+
+The line const user = await User.findOne({ email }).select("+password"); is a Mongoose query that performs the following actions:
+
+User.findOne({ email }): This part of the code searches the User collection in the MongoDB database for a document where the email 
+field matches the value provided in req.body.email. The findOne method returns the first document that matches the query criteria.
+
+.select("+password"): By default, Mongoose does not include fields that are set with select: false in the schema definition 
+when querying the database. The select("+password") method overrides this default behavior to explicitly include the password 
+field in the result, even if it was excluded by default in the schema definition.

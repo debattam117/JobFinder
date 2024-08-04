@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import validator from "validator";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import User from "../model/userSchema.js"
+import {User} from "../model/userSchema.js"
 
 const JobSchema=new mongoose.Schema({
     title: {

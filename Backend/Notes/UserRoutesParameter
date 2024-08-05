@@ -1,6 +1,31 @@
-{    "name":"Debat",
+[
+{
+    "User": "routes"
+},  
+    
+{  
+    "name":"Debat",
     "email":"debattam1179@gmail.com",
     "phone":"8250637810",
     "role":"Employer",
     "password":"Hashshjslkk@gdjjj"
-}
+},
+
+
+{
+    "Job": "routes"
+},
+
+{
+    "title":"Java Full Stack DEV",
+    "description":"Java, Spring Boot, Microservices",
+    "company":"Broadridge Financial Solution PVT LTD",
+    "category":"Web Development",
+    "country":"India",
+    "city":"Bangalore",
+    "location":"EPIP Industrial Zone Kadugodi",
+    "fixedsalary":"45000",
+    "salaryfrom":"",
+    "salaryto":"",
+    "currency":"Dollar"
+ }]

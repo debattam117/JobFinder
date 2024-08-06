@@ -65,7 +65,7 @@ export const postJobs=catchAsyncError(async(req,res,next)=>{
 });
 
 //GET  Job details posted by specific user
-export const getMyJobs= (async (req,res,next)=>{
+export const getMyJobs= catchAsyncError(async (req,res,next)=>{
     const{role}=req.user;
     if(role ==="Job Seeker"){
         return next(new ErrorHandler
@@ -88,7 +88,7 @@ export const getMyJobs= (async (req,res,next)=>{
 
 
 //PUT: Update Job details posted by specific user
-export const updateJob= (async (req,res,next)=>{
+export const updateJob= catchAsyncError(async (req,res,next)=>{
     const{role}=req.user;
     if(role ==="Job Seeker"){
         return next(new ErrorHandler
@@ -116,7 +116,7 @@ export const updateJob= (async (req,res,next)=>{
     });
 });
 
-export const deletJobs= (async (req,res,next)=>{
+export const deletJobs=catchAsyncError (async (req,res,next)=>{
 
     const{role}=req.user;
     if(role ==="Job Seeker"){

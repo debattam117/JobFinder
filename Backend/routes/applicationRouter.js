@@ -6,6 +6,6 @@ const router=express.Router();
 router.get("/employer/GetAll", isAuthorized, employerGetAllApplication);
 router.get("/jobseeker/GetAll", isAuthorized, jobseekerGetAllApplication);
 router.delete("/jobseekerDeleteApplication/:id", isAuthorized, jobseekerDeleteApplication);
-router.post("/postApplication/:id", isAuthorized, postApplication);
+router.post("/postApplication", isAuthorized, postApplication);
 
 export default router;

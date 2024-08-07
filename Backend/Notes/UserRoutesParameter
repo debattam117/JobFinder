@@ -28,4 +28,10 @@
     "salaryfrom":"",
     "salaryto":"",
     "currency":"Dollar"
+ },
+
+ {
+    "email":"dilip117@gmail.com",
+    "password":"Wanda@vision6",
+    "role":"Employer"
  }]

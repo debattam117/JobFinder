@@ -66,18 +66,19 @@ export const jobseekerDeleteApplication=catchAsyncError(async (req,res,next)=>{
 
 export const postApplication=catchAsyncError(async(req,res,next)=>{
     const{role}=req.user;
+    
     if(role ==="Employer"){
         return next(new ErrorHandler
         ("Employer is not allowed to access this resource!",400)
     )};
 
-    if(!req.file || Object.keys(req.file).length === 0){
+    if(!req.files || Object.keys(req.files).length === 0){
         return next(new ErrorHandler
             ("Resume file requires!",400)
         )
     };
 
-    const{resume}=req.file;
+    const{resume}=req.files;
 
     const allowedFormats=['image/png','image/jpg','image/webp'];
 
@@ -101,9 +102,9 @@ export const postApplication=catchAsyncError(async(req,res,next)=>{
     }
     const{name,email,coverletter,phone,address,jobId}=req.body;
     
-    const applicantionId={
-        user:req.user._id,
-        role:"Job Seeker"
+    const applicationId={
+        user: req.user._id,
+        role: "Job Seeker"
     }
 
     if(!jobId){
@@ -121,7 +122,7 @@ export const postApplication=catchAsyncError(async(req,res,next)=>{
         role:"Employer"
     }
     
-    if(!name || !email || !coverletter || !phone || !address || !applicantionId || !employerId || !resume){
+    if(!name || !email || !coverletter || !phone || !address || !applicationId || !employerId || !resume){
         return next(new ErrorHandler("Please fill all the fields!",404)
     )};
 
@@ -131,7 +132,7 @@ export const postApplication=catchAsyncError(async(req,res,next)=>{
         coverletter, 
         phone ,
         address ,
-        applicantionId,
+        applicationId,
         employerId ,
         resume : {
             public_id:cloudinaryResponse.public_id,

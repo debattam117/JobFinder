@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Application = () => {
+const Register = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Application = () => {
   )
 }
 
-export default Application
+export default Register

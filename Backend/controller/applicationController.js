@@ -2,9 +2,10 @@ import { catchAsyncError } from "../middleware/catchAsyncError.js";
 import { ErrorHandler } from "../middleware/error.js"
 import { Application } from "../model/applicationSchema.js";
 import { Job } from "../model/jobSchema.js";
-import { User } from "../model/userSchema.js";
 import cloudinary from "cloudinary";
 
+
+//GET: Employer able to fetch all the application submitted to his/her job queue
 export const employerGetAllApplication=catchAsyncError(async (req,res,next)=>{
     const{role}=req.user;     //req.user we are getting auth.js i.e isAuthorized i.e we have used in routes and then its coming here as req
     if(role ==="Job Seeker"){
@@ -21,7 +22,7 @@ export const employerGetAllApplication=catchAsyncError(async (req,res,next)=>{
 
 });
 
-
+//GET: Job seeker able to fetch his all submitted application
 export const jobseekerGetAllApplication=catchAsyncError(async (req,res,next)=>{
     const{role}=req.user;     //req.user we are getting auth.js i.e isAuthorized i.e we have used in routes and then its coming here as req
     if(role ==="Employer"){
@@ -37,7 +38,7 @@ export const jobseekerGetAllApplication=catchAsyncError(async (req,res,next)=>{
     });
 });
 
-
+//DELETE: Job seeker can delete his own application
 export const jobseekerDeleteApplication=catchAsyncError(async (req,res,next)=>{
 
     const{role}=req.user;

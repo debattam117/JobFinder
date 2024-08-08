@@ -3,6 +3,8 @@ import { ErrorHandler } from "../middleware/error.js"
 import { User } from "../model/userSchema.js";
 import { sendToken } from "../util/jwtToken.js";
 
+
+//POST:User can create their profile 
 export const register=catchAsyncError(async (req,res,next)=>{
      const {name,email,phone,role,password}=req.body;
 
@@ -26,6 +28,7 @@ export const register=catchAsyncError(async (req,res,next)=>{
 });
 
 
+//POST: User can login
 export const login=catchAsyncError(async (req,res,next)=>{
      const {email,password,role}=req.body;
 
@@ -55,7 +58,7 @@ export const login=catchAsyncError(async (req,res,next)=>{
 
 });
 
-
+//GET: User can Logout
 export const logout=catchAsyncError(async (req,res,next)=>{
 
      res.status(201).cookie("token","",{
@@ -72,3 +75,12 @@ export const logout=catchAsyncError(async (req,res,next)=>{
 
 
 });
+
+//GET: User able to fetch his own details
+export const getUser=catchAsyncError(async(req,res,next)=>{      //Here the authorized user is able to fetch his data user req.user which is coming from isAuthorized function.
+     const user=req.user;
+     res.status(200).json({
+          success:true,
+          user,
+     });
+})

@@ -37,6 +37,10 @@ useEffect(()=>{
   fetchUser();
   },[isAuthorized]);
 
+  // if(isAuthorized){
+  //   return <Navigate to={}/>
+  // }
+
   return (
   <>
 

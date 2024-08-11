@@ -27,7 +27,7 @@ const {isAuthorized,setIsAuthorized,user,setUser}=useContext(Context);
 useEffect(()=>{
   const fetchUser = async ()=>{
     try {
-      const response= axios.get("",{withCredentials:true});
+      const response= axios.get("http://localhost:4001/api/v1/user/getUserDetails",{withCredentials:true});
       setUser(response.data.user);
       setIsAuthorized(true);
     } catch (error) {

@@ -1,0 +1,43 @@
+.Page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Content container to center everything */
+  .Content {
+    display: flex;            /* Enable flexbox */
+    flex-direction: column;   /* Arrange children in a column */
+    justify-content: center;  /* Center vertically */
+    align-items: center;      /* Center horizontally */
+    height: 100%;             /* Ensure full height if needed */
+    text-align: center;       /* Optional: Center text inside the container */
+  }
+  
+  /* Style for the image */
+  .Content img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the link */
+  .Content a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;         /* Optional: Add some space above the link */
+  }
+  
+  /* Link hover effect */
+  .Content a:hover {
+    background-color: #0056b3;
+  }
